@@ -70,6 +70,7 @@ h1.innerHTML = "Dom <br> Is <br> Awesome";
 
 // updating h4's for main content/cta section
 
+// have to refactor code below to make it DRY
 let cta = document.querySelectorAll(".text-content h4");
 cta[0].textContent = siteContent["main-content"]["features-h4"];
 cta[1].textContent = siteContent["main-content"]["about-h4"];
@@ -77,9 +78,55 @@ cta[2].textContent = siteContent["main-content"]["services-h4"];
 cta[3].textContent = siteContent["main-content"]["product-h4"];
 cta[4].textContent = siteContent["main-content"]["vision-h4"];
 
+// have to refactor code below to make it dry
 let ctaContent = document.querySelectorAll(".text-content p");
 ctaContent[0].textContent = siteContent["main-content"]["features-content"];
 ctaContent[1].textContent = siteContent["main-content"]["about-content"];
 ctaContent[2].textContent = siteContent["main-content"]["services-content"];
 ctaContent[3].textContent = siteContent["main-content"]["product-content"];
 ctaContent[4].textContent = siteContent["main-content"]["vision-content"];
+
+// Adding contact h4 title //
+
+let contactSection = document.querySelector(".contact h4");
+contactSection.textContent = siteContent.contact["contact-h4"];
+
+// adding contact content with <br>
+let contactContent = document.querySelectorAll(".contact p");
+contactContent[0].innerHTML = siteContent.contact.address.replace(
+  "Street",
+  "Street<br> "
+);
+contactContent[1].textContent = siteContent.contact.phone;
+contactContent[2].textContent = siteContent.contact.email;
+
+// footer content
+let footer = document.querySelector("footer");
+footer.innerHTML = siteContent.footer.copyright.replace("2018", "2018<br> ");
+
+// button content
+let button = document.querySelector("button");
+button.textContent = siteContent.cta.button;
+
+// Adding more nav links and setting color
+
+// creating new anchor DOM elements
+const extraAnchor1 = document.createElement("a");
+extraAnchor1.setAttribute("href", "a");
+extraAnchor1.textContent = "Le Secret To Life";
+
+const extraAnchor2 = document.createElement("a");
+extraAnchor2.setAttribute("href", "a");
+extraAnchor2.textContent = "I Love Lambda";
+
+// Adding elements to nav bar via append and prepend
+const navBar = document.querySelector("nav");
+navBar.appendChild(extraAnchor1);
+navBar.prepend(extraAnchor2);
+
+// setting color to anchors through selecting a tags and looping through each element and setting style color to lightgreen;
+let navBarColors = document.querySelectorAll("a");
+
+for (let i = 0; i < navBarColors.length; i++) {
+  navBarColors[i].style.color = "lightgreen";
+}
