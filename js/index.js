@@ -52,3 +52,34 @@ headerLogo.setAttribute("src", siteContent["cta"]["img-src"]);
 
 let middleLogo = document.getElementById("middle-img");
 middleLogo.setAttribute("src", siteContent["main-content"]["middle-img-src"]);
+
+// Update content to nav items/anchor tags and set color for each anchor;
+const anchors = document.querySelectorAll("a");
+
+anchors[0].textContent = siteContent.nav["nav-item-1"];
+anchors[1].textContent = siteContent.nav["nav-item-2"];
+anchors[2].textContent = siteContent.nav["nav-item-3"];
+anchors[3].textContent = siteContent.nav["nav-item-4"];
+anchors[4].textContent = siteContent.nav["nav-item-5"];
+anchors[5].textContent = siteContent.nav["nav-item-6"];
+anchors.forEach(input => (input.style.color = "lightgreen"));
+
+// Setting H1 text with breaks using innerHTML// need to find another way to refactor this
+let h1 = document.querySelector("h1");
+h1.innerHTML = "Dom <br> Is <br> Awesome";
+
+// updating h4's for main content/cta section
+
+let cta = document.querySelectorAll(".text-content h4");
+cta[0].textContent = siteContent["main-content"]["features-h4"];
+cta[1].textContent = siteContent["main-content"]["about-h4"];
+cta[2].textContent = siteContent["main-content"]["services-h4"];
+cta[3].textContent = siteContent["main-content"]["product-h4"];
+cta[4].textContent = siteContent["main-content"]["vision-h4"];
+
+let ctaContent = document.querySelectorAll(".text-content p");
+ctaContent[0].textContent = siteContent["main-content"]["features-content"];
+ctaContent[1].textContent = siteContent["main-content"]["about-content"];
+ctaContent[2].textContent = siteContent["main-content"]["services-content"];
+ctaContent[3].textContent = siteContent["main-content"]["product-content"];
+ctaContent[4].textContent = siteContent["main-content"]["vision-content"];
